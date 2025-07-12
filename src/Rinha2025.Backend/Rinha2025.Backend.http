@@ -1,4 +1,4 @@
-@Rinha2025.Backend_HostAddress = https://localhost:7094
+@Rinha2025.Backend_HostAddress = http://localhost:9999
 
 POST {{Rinha2025.Backend_HostAddress}}/payments
 Accept: application/json
@@ -11,3 +11,4 @@ Content-Type: application/json
 ###
 GET {{Rinha2025.Backend_HostAddress}}/payments-summary
 Accept: application/json
+ 

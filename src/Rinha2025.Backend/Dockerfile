@@ -4,8 +4,8 @@
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
 USER $APP_UID
 WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
+EXPOSE 9999
+EXPOSE 9999
 
 
 # This stage is used to build the service project
@@ -28,5 +28,4 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
-ENV ASPNETCORE_URLS=http://*:8080;https://*:8081
 ENTRYPOINT ["dotnet", "Rinha2025.Backend.dll"]

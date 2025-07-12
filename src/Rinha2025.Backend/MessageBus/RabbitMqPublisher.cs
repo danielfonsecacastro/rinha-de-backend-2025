@@ -21,7 +21,12 @@ namespace Rinha2025.Backend.MessageBus
             using (var connection = await _factory.CreateConnectionAsync())
             using (var channel = await connection.CreateChannelAsync())
             {
-                await channel.QueueDeclareAsync(queue: _rabbitMqOptions.Queue, arguments: null);
+                await channel.QueueDeclareAsync(
+                                queue: _rabbitMqOptions.Queue, 
+                                durable: false,
+                                exclusive: false,
+                                autoDelete: false, 
+                                arguments: null);
 
                 var body = Encoding.UTF8.GetBytes(message);
                 await channel.BasicPublishAsync(exchange: string.Empty, routingKey: _rabbitMqOptions.Queue, body: body, mandatory: true);
