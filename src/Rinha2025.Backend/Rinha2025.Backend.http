@@ -1,0 +1,13 @@
+@Rinha2025.Backend_HostAddress = https://localhost:7094
+
+POST {{Rinha2025.Backend_HostAddress}}/payments
+Accept: application/json
+Content-Type: application/json
+{
+  "correlationId": "133-12312-3123",
+  "amount": "123.34"
+}
+
+###
+GET {{Rinha2025.Backend_HostAddress}}/payments-summary
+Accept: application/json
